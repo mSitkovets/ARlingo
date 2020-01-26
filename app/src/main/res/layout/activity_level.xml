@@ -21,7 +21,7 @@
 
     <Button
         android:id="@+id/level_three"
-        android:layout_width="300"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="396dp"
@@ -35,7 +35,7 @@
 
     <Button
         android:id="@+id/level_one"
-        android:layout_width="300"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="LEVEL 1"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
 
     <Button
         android:id="@+id/level_two"
-        android:layout_width="300"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="LEVEL 2"

@@ -18,5 +18,6 @@
         </activity>
         <activity android:name=".Language">
         </activity>
+        <activity android:name=".Level"></activity>
     </application>
 </manifest>

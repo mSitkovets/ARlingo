@@ -14,8 +14,7 @@ public class Language extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language);
 
-
-        language_button = (Button) findViewById(R.id.start_btn);
+        language_button = (Button) findViewById(R.id.french_button);
 
         language_button.setOnClickListener(new View.OnClickListener() {
             @Override
