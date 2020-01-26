@@ -15,14 +15,14 @@ public class Level extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
 
-       // level_button = (Button) findViewById(R.id.start_btn);
+        level_button = (Button) findViewById(R.id.level_one);
 
-//        level_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//              //  Intent in = new Intent(Level.this, AR.class); //from, to
-//                //startActivity(in); //this line makes it crash
-//            }
-//        });
+        level_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(Level.this, AR.class); //from, to
+                startActivity(in);
+            }
+        });
     }
 }
