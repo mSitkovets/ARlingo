@@ -76,9 +76,9 @@ public class AR extends AppCompatActivity {
         setContentView(R.layout.activity_ar);
 
 //        addListenerOnButton();
-        radioAnsGroup = (RadioGroup) findViewById(R.id.radioGroup);
-        enterButtonDisplay = (Button) findViewById(R.id.submitButton);
-
+//        radioAnsGroup = (RadioGroup) findViewById(R.id.radioGroup);
+//        enterButtonDisplay = (Button) findViewById(R.id.submitButton);
+//
 //        enterButtonDisplay.setOnClickListener(new View.OnClickListener() {
 //
 //            @Override
@@ -89,8 +89,8 @@ public class AR extends AppCompatActivity {
 //                RadioButton radioAnswer = findViewById(R.id.radioButton2);
 //
 //                if (radioButton == radioAnswer)
-//                Toast.makeText(AR.this,
-//                        "Correct!", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(AR.this,
+//                            "Correct!", Toast.LENGTH_SHORT).show();
 //            }
 //        });
 
@@ -143,12 +143,12 @@ public class AR extends AppCompatActivity {
 
     }
 
-    public void addListenerOnButton() {
-
-//        radioAnsGroup = (RadioGroup) findViewById(R.id.radioGroup);
-//        buttonDisplay = (Button) findViewById(R.id.enterButton);
+//    public void addListenerOnButton() {
 //
-//        buttonDisplay.setOnClickListener(new OnClickListener() {
+//        radioAnsGroup = (RadioGroup) findViewById(R.id.radioGroup);
+//        enterButtonDisplay = (Button) findViewById(R.id.submitButton);
+//
+//        enterButtonDisplay.setOnClickListener(new View.OnClickListener() {
 //
 //            @Override
 //                public void onClick(View v) {
@@ -160,4 +160,4 @@ public class AR extends AppCompatActivity {
     }
 
 
-    }
+
