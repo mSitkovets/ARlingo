@@ -1,10 +1,11 @@
 package com.example.deltahacks;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Language extends AppCompatActivity{
     Button language_button;

@@ -1,7 +1,12 @@
 package com.example.deltahacks;
 
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.widget.Toast;
@@ -18,40 +23,47 @@ import com.google.ar.sceneform.ux.TransformableNode;
 
 
 public class AR extends AppCompatActivity {
-//    public static boolean checkIsSupportedDeviceOrFinish(final Activity activity) {
-//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-//            Log.e(TAG, "Sceneform requires Android N or later");
-//            Toast.makeText(activity, "Sceneform requires Android N or later", Toast.LENGTH_LONG).show();
-//            activity.finish();
-//            return false;
-//        }
-//
-//        String openGlVersionString = ((ActivityManager) activity.getSystemService(Context.ACTIVITY_SERVICE)).getDeviceConfigurationInfo().getGlEsVersion();
-//        if (Double.parseDouble(openGlVersionString) < MIN_OPENGL_VERSION) {
-//            Log.e(TAG, "Sceneform requires OpenGL ES 3.0 later");
-//            Toast.makeText(activity, "Sceneform requires OpenGL ES 3.0 or later", Toast.LENGTH_LONG).show();
-//            activity.finish();
-//            return false;
-//        }
-//
-//        return true;
-//    }
+
+    public static boolean checkIsSupportedDeviceOrFinish(final Activity activity) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            Log.e(TAG, "Sceneform requires Android N or later");
+            Toast.makeText(activity, "Sceneform requires Android N or later", Toast.LENGTH_LONG).show();
+            activity.finish();
+            return false;
+        }
+
+        String openGlVersionString =
+                ((ActivityManager) activity.getSystemService(Context.ACTIVITY_SERVICE))
+                        .getDeviceConfigurationInfo()
+                        .getGlEsVersion();
+        if (Double.parseDouble(openGlVersionString) < MIN_OPENGL_VERSION) {
+            Log.e(TAG, "Sceneform requires OpenGL ES 3.0 later");
+            Toast.makeText(activity, "Sceneform requires OpenGL ES 3.0 or later",
+                    Toast.LENGTH_LONG)
+                    .show();
+            activity.finish();
+            return false;
+        }
+
+        return true;
+    }
 
     private static final String TAG = AR.class.getSimpleName();
     private static final double MIN_OPENGL_VERSION = 3.0;
 
     ArFragment arFragment;
     ModelRenderable catRenderable;
+
     @Override
     @SuppressWarnings({"AndroidApiChecker", "FutureReturnValueIgnored"})
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if (!checkIsSupportedDeviceOrFinish(this)) {
-//            return;
-//        }
-//
-        setContentView(R.layout.activity_main);
-        arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
+        if (!checkIsSupportedDeviceOrFinish(this)) {
+            return;
+        }
+
+        setContentView(R.layout.activity_ar);
+        arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ar_fragment);
         ModelRenderable.builder()
                 .setSource(this, Uri.parse("Mesh_Cat.sfb"))
                 .build()
@@ -65,7 +77,8 @@ public class AR extends AppCompatActivity {
                         });
 
         // Adding the model to the scene:
-        arFragment.setOnTapArPlaneListener((HitResult hitresult, Plane plane, MotionEvent motionevent) -> {
+        arFragment.setOnTapArPlaneListener(
+                (HitResult hitresult, Plane plane, MotionEvent motionevent) -> {
             if (catRenderable == null) {
                 return;
             }
