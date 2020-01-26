@@ -19,5 +19,9 @@
         <activity android:name=".Language">
         </activity>
         <activity android:name=".Level"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 </manifest>

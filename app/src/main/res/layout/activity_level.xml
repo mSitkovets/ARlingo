@@ -4,20 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#224259">
 
     <TextView
         android:id="@+id/label_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginLeft="84dp"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:gravity="center"
         android:text="Choose your level"
+        android:textColor="#89BFE5"
         android:textSize="30sp"
+        app:fontFamily="@font/pt_sans_caption_bold"
         app:layout_constraintBottom_toTopOf="@+id/level_one"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.739" />
+        app:layout_constraintVertical_bias="0.677" />
 
     <Button
         android:id="@+id/level_three"
@@ -25,7 +29,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="396dp"
+        android:background="@drawable/rounded_button"
         android:text="LEVEL 3"
+        android:textColor="#224259"
+        app:fontFamily="@font/pt_sans_caption_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.531"
@@ -37,20 +44,26 @@
         android:id="@+id/level_one"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
         android:text="LEVEL 1"
+        android:textColor="#224259"
+        app:fontFamily="@font/pt_sans_caption_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341" />
+        app:layout_constraintVertical_bias="0.338" />
 
     <Button
         android:id="@+id/level_two"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:background="@drawable/rounded_button"
         android:text="LEVEL 2"
+        android:textColor="#224259"
+        app:fontFamily="@font/pt_sans_caption_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
