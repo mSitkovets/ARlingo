@@ -11,20 +11,25 @@ android:clipChildren="false"
 android:clipToPadding="false" >
 
     <TextView
-        android:id="@+id/orbitHeader"
+        android:id="@+id/buttonHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="What is this animal?"
         android:textAlignment="center"
         android:textColor="@color/colorAccent" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:buttonTint="#FFFFFF"
-        android:text="Catte"
-        android:textColor="@color/colorAccent" />
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="122dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="#FFFFFF"
+            android:text="Catte"
+            android:textColor="@color/colorAccent" />
 
     <RadioButton
         android:id="@+id/radioButton2"
@@ -42,5 +47,11 @@ android:clipToPadding="false" >
         android:text="Chien"
         android:textColor="@color/colorAccent" />
 
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Check Answer" />
 
+    </RadioGroup>
 </LinearLayout>
