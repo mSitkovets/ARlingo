@@ -18,6 +18,7 @@ import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.rendering.ModelRenderable;
+import com.google.ar.sceneform.rendering.ViewRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 
@@ -53,6 +54,7 @@ public class AR extends AppCompatActivity {
 
     ArFragment arFragment;
     ModelRenderable catRenderable;
+    ViewRenderable u_answerRenderable;
 
     @Override
     @SuppressWarnings({"AndroidApiChecker", "FutureReturnValueIgnored"})
@@ -62,6 +64,7 @@ public class AR extends AppCompatActivity {
             return;
         }
 
+        // Creating renderables
         setContentView(R.layout.activity_ar);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ar_fragment);
         ModelRenderable.builder()
@@ -70,17 +73,22 @@ public class AR extends AppCompatActivity {
                 .thenAccept(renderable -> catRenderable = renderable)
                 .exceptionally(
                         throwable -> {
-                            Toast toast = Toast.makeText(this, "Unable to load andy renderable", Toast.LENGTH_LONG);
+                            Toast toast = Toast.makeText(this, "Unable to load renderable", Toast.LENGTH_LONG);
                             toast.setGravity(Gravity.CENTER, 0, 0);
                             toast.show();
                             return null;
                         });
 
+        ViewRenderable.builder()
+                .setView(this, R.layout.user_answer)
+                .build()
+                .thenAccept(renderable -> u_answerRenderable = renderable);
+
         // Adding the model to the scene:
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitresult, Plane plane, MotionEvent motionevent) -> {
-            if (catRenderable == null) {
-                return;
+            if (catRenderable == null || u_answerRenderable == null) {
+                    return;
             }
 
             Anchor anchor = hitresult.createAnchor();
@@ -91,7 +99,20 @@ public class AR extends AppCompatActivity {
             cat.setParent(anchorNode);
             cat.setRenderable(catRenderable);
             cat.select();
+
+            TransformableNode u_answer = new TransformableNode(arFragment.getTransformationSystem());
+            u_answer.setParent(cat);
+            u_answer.setRenderable(u_answerRenderable);
+            u_answer.select();
+
         });
+
+        // update button text when the renderable's node is tapped
+
+
+
+
+
 
     }
 
